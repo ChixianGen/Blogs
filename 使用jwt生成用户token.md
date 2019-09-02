@@ -47,22 +47,27 @@ function verifyToken(token) {
 // 对比数据库里的token
 function verifyMysqlToken(token, userName) {
     return new Promise((reslove, reject) => {
-        // 1、先在数据库里比对token
-        var sql = `select token from users where user='${userName}'; `
-        mysqlPool(sql).then(data => {
-            // 如果请求的token跟存在数据库里的token一直，name就验证是否过期；
-            var mysqlToken = data[0].token
-            console.log(mysqlToken == token,"对比结果")
-            if (mysqlToken == token) {
-                console.log("请求的token跟数据库里的token一致")
-                // 开始验证,调用验证函数,成功后调用reslove的方法，失败就reject（）
-                verifyToken(token).then(data => reslove(data)).catch(err => reject())
-            } else {
-                // 不一致，则结束；
-                console.log("不一致")
-                reject()
-            }
-        })
+        // 只要token和用户名为空，name就失败
+        if(token==undefined||userName==undefined){
+            reject();
+        }else{
+            // 1、先在数据库里比对token
+            var sql = `select token from users where user='${userName}'; `
+            mysqlPool(sql).then(data => {
+                // 如果请求的token跟存在数据库里的token一直，name就验证是否过期；
+                var mysqlToken = data[0].token
+                console.log(mysqlToken == token,"对比结果")
+                if (mysqlToken == token) {
+                    console.log("请求的token跟数据库里的token一致")
+                    // 开始验证,调用验证函数,成功后调用reslove的方法，失败就reject（）
+                    verifyToken(token).then(data => reslove(data)).catch(err => reject())
+                } else {
+                    // 不一致，则结束；
+                    console.log("不一致")
+                    reject()
+                }
+            })
+        }
     })
 }
 ```
