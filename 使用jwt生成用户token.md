@@ -1,5 +1,5 @@
 # 使用jwt生成token
-![alt text](/img/leaf.png) YATING / 2019.9.2
+![alt text](./img/leaf.png) YATING / 2019.9.2
 
 JSON Web Token（JWT）是目前最流行的跨域身份验证解决方案。
 
@@ -47,7 +47,6 @@ function verifyToken(token) {
 // 对比数据库里的token
 function verifyMysqlToken(token, userName) {
     return new Promise((reslove, reject) => {
-        console.log(token, userName,"|||||||||||||||||")
         // 1、先在数据库里比对token
         var sql = `select token from users where user='${userName}'; `
         mysqlPool(sql).then(data => {
