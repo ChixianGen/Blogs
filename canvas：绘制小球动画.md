@@ -1,6 +1,6 @@
 使用canvas绘制小球，鼠标经过之处放大，离开缩小。
 
-预览地址：(http://www.yating.online/demo/balls)[http://www.yating.online/demo/balls]
+预览地址：[http://www.yating.online/demo/balls](http://www.yating.online/demo/balls)
 
 ```js
 // 随机范围的随机数
