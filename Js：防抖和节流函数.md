@@ -1,0 +1,39 @@
+## 防抖函数
+
+在连续点击n次的时间之内，只取最后一次操作；
+
+概念： 在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时
+
+```js
+function debounce(fn,delay){
+    var timer=null;
+    return (...args)=>{
+        clearTimeOut(timer);
+        var timer=setTimeOut(()=>{
+            fn.apply(this,args);
+        },delay)
+    }
+
+}
+```
+
+
+## 节流
+
+在固定的时间之内执行；例如每隔2秒执行一次，在这2秒钟之间无论点击多少次。都只执行1次；
+
+概念： 规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效
+
+ ```js
+ function throttle(fn,delay){
+     var flag=true;
+     return (...args)=>{
+         if(!flag) return;
+         flag=false;
+         setTimeOut(()=>{
+             fn.applay(this,args);
+             flag=true;
+         },delay)
+     }
+ }
+ ```
