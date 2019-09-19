@@ -1,8 +1,12 @@
-创建组件的两种方法
-- function方式创建
-- class方式创建
+# 创建组件的两种方法
 
-## 以函数来创建组件
+- 1、工厂函数：function方式创建
+- 2、ES6class方式创建
+- 3、es5的react。createClass({render(){return 虚拟DOM}})
+
+注意：组件名字必须大写；
+
+## 工厂函数，以函数来创建组件
 ```js
 // 创建组件的方式，组件首字母大写
  function Hello(props){
@@ -26,7 +30,7 @@ ReactDOM.render(<div><Hello {...dog}/></div>,document.getElementById('app'))
 ```
 ---
 
-## 使用class创建组件
+## es6：使用class创建组件
 ```js
 // 使用class方式定义组件，必须让组件继承React.Component
 class Mycomponent extends React.Component{
