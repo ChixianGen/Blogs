@@ -25,7 +25,9 @@
 
 #### 熟悉渐进式框架`vue.js`、`vue-cli`脚手架、`nuxt`框架、`vuex`状态管理器，`vue router`路由管理器等；
 
-#### 熟悉`node.js`,和`npm`命令行工具，熟悉`express`框架创建后台服务器;
+#### 了解React框架，React核心库，React-dom扩展库的使用方法；
+
+#### 熟悉`node.js`,和`npm`，`yarn`命令行工具，熟悉`express`框架创建后台服务器;
 
 #### 熟悉`webpack`、`fis3`构建工具的使用和配置、`fillder`抓包工具、`git`版本控制工具和常用指令、`linux`常用指令。
 
