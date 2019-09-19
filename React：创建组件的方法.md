@@ -24,6 +24,7 @@ const dog={
 // 向组件传值：在组件里传{...对象名}，或者 name={对象名.属性}
 ReactDOM.render(<div><Hello {...dog}/></div>,document.getElementById('app'))
 ```
+---
 
 ## 使用class创建组件
 ```js
@@ -42,6 +43,7 @@ class Mycomponent extends React.Component{
 ReactDOM.render(<div><Mycomponent {...dog}/></div>,document.getElementById('app'))
 ```
 
+---
 
 ### class创建组件拥有私有数据
 ```js
@@ -59,13 +61,13 @@ class MyComponent extends React.Component{
 ```
 
 ## 总结
-- 无论是class创建，还是function创建，他们的props都是只读的，不能修改；
-- 使用class关键字创建的组件，有自己的*私有数据*`this.state`，叫`有状态组件`
-- 但是使用function创建的组件，只有props，*没有自己的私有属性和生命周期*，叫`无状态组件`；
-- *最本质的区别，有无私有数据，有无声明周期*；
-- 无状态组件，运行状态组件比有状态组件运行效率高；
+- 1、无论是class创建，还是function创建，他们的props都是只读的，不能修改；
+- 2、使用class关键字创建的组件，有自己的*私有数据*`this.state`，叫`有状态组件`
+- 3、但是使用function创建的组件，只有props，*没有自己的私有属性和生命周期*，叫`无状态组件`；
+- 4、*最本质的区别，有无私有数据，有无声明周期*；
+- 5、无状态组件，运行状态组件比有状态组件运行效率高；
 
 ### props、和state/data的数据区别
 
-- props中的数据都是*外界传递*过来的，*只读不可重新赋值*
-- state/data都是组件私有的，*可以重新赋值*
+- 1、props中的数据都是*外界传递*过来的，*只读不可重新赋值*
+- 2、state/data都是组件私有的，*可以重新赋值*

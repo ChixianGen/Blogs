@@ -1,5 +1,5 @@
 
-## 当有n个子类的时候，方法相同，就会显得代码冗余；这个时候就需要创建一个父类来继承；
+### 当有n个子类的时候，方法相同，就会显得代码冗余；这个时候就需要创建一个父类来继承；
 ```js
 class American{
     constructor(name,age){
@@ -19,8 +19,9 @@ class Chinese{
 
 const c1=new Chinese("婷er",12);
 ```
+---
 
-##  创建一个父类，并让子类继承父类
+###  创建一个父类，并让子类继承父类
 ```js
 class Person{
     constructor(name,age){
@@ -39,20 +40,31 @@ class Chinese extends Person{}
 const c1=new Chinese("婷er",12);
 ```
 
-## 在子类添加构造器方法
+---
+
+### 在子类添加构造器方法
 ```js
 class American extends Person{
     constructor(name,age){
         super(name,age);
-        // ？1：为什么要在constructor使用super
-        // 如果子类通过extends关键字继承了父类，那么子类的constructor构造函数中，必须先调用一下super()；
-        // ？2：super()是什么
-        // super是一个函数，是父类的构造器；子类中的super，就是父类中，constructor的引用；
-        // ？3：调用super()以后，传的参变成undefined了；
-        // 子类的构造器的参数传给super
     }
 }
 ```
+---
+
+？1：为什么要在constructor使用super
+
+- 如果子类通过extends关键字继承了父类，那么子类的constructor构造函数中，必须先调用一下super()；
+
+
+？2：super()是什么
+- super是一个函数，是父类的构造器；子类中的super，就是父类中，constructor的引用；
+
+
+？3：调用super()以后，传的参变成undefined了；
+- 子类的构造器的参数传给super
+
+---
 
 ## 在子类中添加信息，给中国人添加身份证号
 ```js

@@ -140,6 +140,7 @@ export default {
 ```
 
 因为canvas是内联标签，在浏览器预览的时候有下拉条，不美观，内联标签自带一点高度，改成block就可以避免这个问题了。
+
 ```css
 <style lang="less" scoped>
 #stage {
