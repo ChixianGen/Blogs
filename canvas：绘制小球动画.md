@@ -20,7 +20,7 @@ function getMouseXY() {
         mouseY = e.clientY;
     })
 }
-// 创建一个构造函数
+// 创建一个球的构造函数
 function mother(maxWidth, maxHeight, ctx) {
     this.ctx = ctx;
     this.maxWidth = maxWidth;
@@ -28,53 +28,130 @@ function mother(maxWidth, maxHeight, ctx) {
 }
 // 创建方法
 mother.prototype = {
-    // 配置小球基础信息
+    // 配置
+    // -pi<=t<=pi 或 0<=t<=2*pi
+    // x=a*(2*cos(t)-cos(2*t))
+    // y=a*(2*sin(t)-sin(2*t))
+    // 心形坐标
+    // 半径为a
     init: function () {
         // 随机配置
-        this.x = betweenRandom(0, this.maxWidth);
-        this.y = betweenRandom(0, this.maxHeight);
-        this.r = betweenRandom(5,10);
-        this.beiyongR =this.r;//存储原来小球的半径，以便于恢复；
+        // this.x = betweenRandom(0, this.maxWidth);
+        // this.y = betweenRandom(0, this.maxHeight);
+        this.t = (betweenRandom(0, 360) / 180) * Math.PI;
+        this.r = betweenRandom(1, 10);
+        this.x = 50 * (2 * Math.cos(this.t) - Math.cos(2 * this.t))+(this.maxWidth/2);
+        this.y = 50 * (2 * Math.sin(this.t) - Math.sin(2 * this.t))+(this.maxHeight/2);
+        this.beiyongR = this.r;
         this.color = acolor[Math.floor(betweenRandom(0, 5))];
-        this.vx = betweenRandom(-1, 1);//小球x方向
-        this.vy = betweenRandom(-1, 1);//小球y方向
+        this.vx = betweenRandom(-1, 1);
+        this.vy = betweenRandom(-1, 1);
+        this.beizhi = false;//小球是否在鼠标周围
     },
-    // 绘制小球
+    // 绘制
     draw: function () {
         this.ctx.beginPath();
         this.ctx.fillStyle = this.color;
         this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
         this.ctx.fill();
     },
-    // 移动动画
+    // 移动
     move: function () {
-        // 当小球要超过画布宽度时，方向取反
         if (this.x - this.r < 0 || this.x + this.r > this.maxWidth) { this.vx = -this.vx; }
-        // 当小球要超过画布高度时，方向取反
         if (this.y - this.r < 0 || this.y + this.r > this.maxHeight) { this.vy = -this.vy; }
-        // 在鼠标周围就放大
-        if ((mouseX - this.x <= 100 && this.x - mouseX <= 100) && (this.y - mouseY <= 100 && mouseY - this.y <= 100)) {
-            // 最大放大到50
-           if(this.r>=50){
-               this.r=50
-           }else{
-            //    否则就放大
-               this.r++
-           }
-        }
-        // 不在鼠标周围时
-        else{
-            // 当半径大于原来半径时，那么就减小
-            if(this.r>this.beiyongR){
-                this.r--
-            }else{
-                // 否则就为原来的半径
-                this.r=this.beiyongR
+        // 鼠标与小球的直线距离；根据x**2+y**2=r**2
+        var distance = Math.sqrt((mouseX - this.x) ** 2 + (this.y - mouseY) ** 2)
+
+        // 圆形
+        //        if (distance < 99){
+        //            this.x += -this.vx;
+        //            this.y += -this.vy;
+        //        }
+        //        else if(distance > 101){
+        //           this.x += this.vx;
+        //           this.y += this.vy;
+        //        }
+        //        else{
+        //            if (this.r < 20){
+        //                this.r++
+        //            }
+        //        }
+
+        //        //心形1
+        //        var dlta_x = this.x - mouseX
+        //        var dlta_y = this.y - mouseY
+        //        var a = 100
+        //        if (dlta_x**2+dlta_y**2 - a*dlta_y > a * Math.sqrt(dlta_x**2+dlta_y**2)){
+        //            this.x += -this.vx;
+        //            this.y += -this.vy;
+        //        }
+        //        else if(dlta_x**2+dlta_y**2 - a * dlta_y < a * Math.sqrt(dlta_x**2+dlta_y**2)){
+        //            this.x += this.vx;
+        //            this.y += this.vy;
+        //        }
+
+        //        //心形2
+        //        var dlta_x = this.x - mouseX
+        //        var dlta_y = this.y - mouseY
+        //        var a = 12500 * 4
+        //        var jiange = 500 *4
+        //
+        //        var distance = 5*(dlta_x**2) + 6*Math.abs(dlta_x)*(dlta_y) + 5*(dlta_y**2)
+        //        if (distance < a-jiange){
+        //            this.x += -10*this.vx;
+        //            this.y += -10*this.vy;
+        //        }
+        //        else if(distance > a+jiange){
+        //            this.x += this.vx;
+        //            this.y += this.vy;
+        //        }
+
+
+        //心形2 快速
+        var dlta_x = this.x - mouseX
+        var dlta_y = this.y - mouseY
+        var a = 12500 * 4
+        var jiange = 500 * 4
+
+        var distance = 5 * (dlta_x ** 2) + 6 * Math.abs(dlta_x) * (dlta_y) + 5 * (dlta_y ** 2)
+        if (distance < a - jiange) {
+            // 在爱心内部的小球快速移动到边缘；
+            for (var i = 0; i < 10; i++) {
+                this.x += this.vx;
+                this.y += this.vy;
+            }
+            if (this.r < 50) {
+                this.r++
             }
         }
-        this.x += this.vx,
+        else if (distance > a + jiange) {
+            this.x += this.vx;
             this.y += this.vy;
+            if (this.r > this.beiyongR) {
+                this.r--
+            }
+        } else {
+            if (this.r > 15) {
+                this.r--;
+            }
+        }
+
+        // 单纯经过放大
+        //        if (distance <=100) {
+        //            if (this.r < 100)
+        //            {
+        //                this.r++
+        //            }
+        //        }
+        //        // 不在鼠标周围时
+        //        else {
+        //            if (this.r > this.beiyongR) {
+        //                this.r--
+        //            }
+        //        }
+
         this.draw()
+
     }
 }
 ```

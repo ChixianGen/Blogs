@@ -54,9 +54,15 @@ import style from './style.js'
 
 # 模块样式表
 准备：要先下载loader：style-loader 和 css-loader
-写一个样式表
+写一个样式表,只要再父组件导入样式，子组件也会生效；
 ```css
 .bg{
     color:red;
 }
 ```
+
+在react中没有指令的概念；
+
+css模块化，只针对类选择器，和ID选择器生效；在css-loader加 `?module`
+就可以以模块的形式导入；
+把rulues[{/}]
