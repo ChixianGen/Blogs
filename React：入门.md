@@ -32,3 +32,5 @@ react高效的原因：
 jsx：javasript xml
 1. 用来创建React虚拟dom对象；
 2. 标签任意；
+
+diff算法：最小页面重绘；
