@@ -60,16 +60,15 @@ function xier(a) {
 // 快速排序
 // i和j分别为哨兵；
 function kuaisu(left, right, a) {
-    console.log(left,"到",right)
-    if (i > j) {
+    if (i >= j) {
         return
     }
     var flag = a[left];//以最左边为准基数；
     var i = left;
     var j = right;
-    while (i < j) {
-        while (i < j && a[j] >= flag) { j--};//哨兵j向左移动
-        while (i < j && a[i] <= flag) { i++ };// 哨兵i向右移动
+    while (i != j) {
+        while (left < j && a[j] >= flag) { j-- };//哨兵j向左移动
+        while (i < right && a[i] <= flag) { i++ };// 哨兵i向右移动
         if (i < j) {
             // 两个哨兵调换位置；
             var temp = a[i];
@@ -79,20 +78,12 @@ function kuaisu(left, right, a) {
         }
     }
     //当i=j时跳出循环；交换基位位置；
-    console.log(i,"换位置",j)
     var temp = a[i];
     a[left] = a[i];
     a[i] = flag;
-    console.log(a,"?")
-    if (left == i) {
-        return;
-    }
-    if (j + 1 == right) {
-        return;
-    }
-    kuaisu(left, i-1, a);
-    kuaisu(j+1, right, a);
+    kuaisu(left, i - 1, a);
+    kuaisu(j + 1, right, a);
 }
 
-kuaisu(0, a.length-1, a);
+kuaisu(0, a.length - 1, a);
 
