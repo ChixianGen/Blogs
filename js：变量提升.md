@@ -1,0 +1,59 @@
+## JavaScript 变量提升
+1. JavaScript 中，函数及变量的`声明都将被提升到函数的最顶部`。
+2. JavaScript 中，`变量可以在使用后声明`，也就是变量可以先使用再声明。
+
+## JavaScript 初始化不会提升
+JavaScript 只有声明的变量会提升，初始化的不会。
+
+1. 看两个例子：
+内部函数可以使用外部变量；
+```js
+var a=1;
+function aa(){
+    console.log(a);
+    a++;
+    console.log(a)
+}
+aa();
+```
+输出的结果为：
+```js
+1;
+2;
+```
+
+当出现两个相同的变量，会优先使用最近的变量；
+```js
+var a=1;
+function aa(){
+    console.log(a);
+    var a=1;
+    a++;
+    console.log(a)
+}
+aa();
+```
+输出的结果为：
+```js
+undefined;
+2;
+```
+
+为什么会输出undefined；
+因为变量提升了。初始化没有提升；
+```js
+var a=1;
+function aa(){
+    var a;
+    console.log(a);
+    a=1;
+    a++;
+    console.log(a)
+}
+aa();
+```
+输出的结果为：
+```js
+undefined;
+2;
+```
