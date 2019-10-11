@@ -8,6 +8,8 @@
 
 #### 移动端个人网站：[https://www.yating.online/](https://www.yating.online/)
 
+#### 站酷：[https://chenyating.zcool.com.cn/](https://chenyating.zcool.com.cn/)
+
 
 ---
 
@@ -25,7 +27,6 @@
 
 #### 熟悉渐进式框架`vue.js`、`vue-cli`脚手架、`nuxt`框架、`vuex`状态管理器，`vue router`路由管理器等；
 
-#### 了解React框架，React核心库，React-dom扩展库的使用方法；
 
 #### 熟悉`node.js`,和`npm`，`yarn`命令行工具，熟悉`express`框架创建后台服务器;
 
@@ -35,12 +36,15 @@
 
 #### 有基本的`小程序`开发经验，熟悉小程序调试工具。
 
+#### 了解React框架，React核心库，React-dom扩展库的使用方法；
+
+#### 了解three.js
+
 #### 2011年开始熟练掌握`Photoshop`技术，具有良好的审美观和用户体验意识，参与官网的页面设计、小程序产品页面设计；
 
 
 ---
 
-项目经验：[https://github.com/Chenyating/Developed-page](https://github.com/Chenyating/Developed-page)
 
 ### 1、个人网站：
 采用nuxt前端框架+node.js的express后台框架+mysql数据库。实现服务端渲染与客户端渲染，使用sql语句对数据库进行数据操作，
@@ -49,7 +53,7 @@
 开发步步高教育电子活动推广宣传运营活动页。累计150w多家长学生访问，运用DOM,JSON和ajax技术将后台数据导入，用Javascript,cookie完成登录、并且完成正常的验证登录，完成功能正常访问；协调移动端的页面适配；
    
 ### 3、web官网开发
-[步步高AI开放平台](http://ai.eebbk.com/)，规划设计网站，全权负责开发、保证用户可以正常体验AI服务功能。抽出公共部分组件，优化用户体验，配置proxyTable解决跨域问题。
+[步步高AI开放平台](http://ai.eebbk.com/)，[ 暂时下线整改中 ] 规划设计网站，全权负责开发、保证用户可以正常体验AI服务功能。抽出公共部分组件，优化用户体验，配置proxyTable解决跨域问题。
 
 [小天才官网](https://www.okii.com/)：开发小天才国际官网、泰国官网、印尼官功能开发、产品上市开发等功能；使用rem、百分百、等比例缩放等进行响应式布局；使用AJAX获取数据，解析数据；利用页面传参实现跳转
    
@@ -74,4 +78,4 @@
 | 1| 2014-2018年6月   | Tianjin Polytechnic University|
 |2|2018年7月至今|广东小天才科技有限公司，web前端开发工程师|
 |3|2019年5月|获得晋升机会由web前端开发工程师T3职等晋升为T4|
-|4|2019年5月至今|担任前端项目负责人，主要负责规划安排前端项目开发进度，页面开发，前端建设，代码评审等|
+|4|2019年5月至今|担任前端项目负责人，主要负责规划安排前端项目开发进度，页面开发、把控项目进度|
