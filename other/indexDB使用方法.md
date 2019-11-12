@@ -1,4 +1,4 @@
-IndexedDB：
+# IndexedDB：
 
 ### 步骤:
 1. 打开数据库：request=indexedDB.open(dbName,1)

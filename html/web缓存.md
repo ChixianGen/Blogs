@@ -1,3 +1,4 @@
+# web缓存
 客户端缓存
 - from disk cache
 - from memory cache
@@ -6,7 +7,7 @@
 
 
 
-# web缓存：web资源存在于web服务器和客户端之间的副本；
+## web缓存：web资源存在于web服务器和客户端之间的副本；
 
 ### web缓存的作用：
 - 减少网络带宽消耗；
