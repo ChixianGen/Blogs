@@ -20,7 +20,7 @@ function makeToken(name, password, exp) {
 类似这样的：
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGluZ2VyIiwicGFzc3dvcmQiOiJndW93ZWkiLCJleHAiOjE1Njc0MTQ1NjEsImlhdCI6MTU2NzQxMjc2MX0.75ARiai6NXo0UrqMyW30eumfAz4zNzqfZT0nm85LlFk
 ```
-#### 具体的原理什么的，请请大家自己去网上找一下，我也讲的不是很清楚。
+具体的原理什么的，请请大家自己去网上找一下，我也讲的不是很清楚。
 
 
 - 3、验证token是否过期，我这里用了一个promis方法，没有过期的时候，decoded会返回token的解析结果。

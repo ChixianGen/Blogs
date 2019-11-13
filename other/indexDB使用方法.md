@@ -1,6 +1,6 @@
 # IndexedDB：
 
-### 步骤:
+## 步骤:
 1. 打开数据库：request=indexedDB.open(dbName,1)
 2. 写打开失败的方法：request.onerror=function（e）{……}；
 3. 写打开成功的方法：request.onsuccess=function（e）{……};
@@ -14,7 +14,7 @@
 
 IndexedDB 是一种可以让你在用户的浏览器内持久化存储数据的方法。IndexedDB 为生成 Web Application 提供了丰富的查询能力，使我们的应用在在线和离线方法时都可以正常工作。
 
-### 基本模式
+## 基本模式
 IndexedDB 鼓励使用的基本模式如下所示：
 1. 打开数据库并且开始一个事务。
 2. 创建一个 object store。
@@ -22,7 +22,7 @@ IndexedDB 鼓励使用的基本模式如下所示：
 4. 通过监听正确类型的 DOM 事件以等待操作完成。
 5. 在操作结果上进行一些操作（可以在 request 对象中找到）
 
-### IndexedDB具有以下特点：
+## IndexedDB具有以下特点：
 1. 键值对储存。 IndexedDB内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括JavaScript对象。在对象仓库中，数据以“键值对”的形式保存，每一个数据都有对应的键名，键名是独一无二的，不能有重复，否则会抛出一个错误。
 2. 异步。 IndexedDB操作时不会锁死浏览器，用户依然可以进行其他操作，这与localStorage形成对比，后者的操作是同步的。异步设计是为了防止大量数据的读写，拖慢网页的表现。
 3. 支持事务。 IndexedDB支持事务（transaction），这意味着一系列操作步骤之中，只要有一步失败，整个事务就都取消，数据库回到事务发生之前的状态，不存在只改写一部分数据的情况。
@@ -30,7 +30,7 @@ IndexedDB 鼓励使用的基本模式如下所示：
 5. 储存空间大 IndexedDB的储存空间比localStorage大得多，一般来说不少于250MB。IE的储存上限是250MB，Chrome和Opera是剩余空间的某个百分比，Firefox则没有上限。
 6. 支持二进制储存。
 
-### 判断是否支持indexedDB：
+## 判断是否支持indexedDB：
 ```js
 if (!window.indexedDB) {
     window.alert("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.")
@@ -174,9 +174,9 @@ cursor.onsuccess = function(e) {
         res.continue();
     }
 }
-### openCursor 方法接收两个参数，
+## openCursor 方法接收两个参数，
 第一个是 IDBKeyRange 对象，该对象创建方法主要有以下几种：
-#### IDBKeyRange对象的作用是生成一个表示范围的Range对象。生成方法有四种：
+### IDBKeyRange对象的作用是生成一个表示范围的Range对象。生成方法有四种：
 1. lowerBound方法：指定范围的下限。
 2. upperBound方法：指定范围的上限。
 3. bound方法：指定范围的上下限。
@@ -199,7 +199,7 @@ var lowerRange = IDBKeyRange.lowerBound(1, false);
 var upperRange = IDBKeyRange.upperBound(10, false);
 ```
 
-#### openCursor 方法的第二个参数表示游标的读取方向，主要有以下几种：
+### openCursor 方法的第二个参数表示游标的读取方向，主要有以下几种：
 1. next : 游标中的数据按主键值升序排列，主键值相等的数据都被读取
 2. nextunique : 游标中的数据按主键值升序排列，主键值相等只读取第一条数据
 3. prev : 游标中的数据按主键值降序排列，主键值相等的数据都被读取
@@ -244,7 +244,7 @@ cursor.continue();
 ```
 --- 
 
-### 例子：
+## 例子：
 ```html
 <!DOCTYPE html>
 <html>

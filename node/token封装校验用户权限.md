@@ -10,7 +10,7 @@ var mysqlPool = require('../conf/mysqlPool') //换成连接池来操作数据库
 var jwt = require('jsonwebtoken');
 ```
 
-### 用户每次登录完成以后都需要新建一个token，并保存在数据库里。
+## 用户每次登录完成以后都需要新建一个token，并保存在数据库里。
 ```js
 // 二、生成一个token,exp是过期时间
 const secret = 'yating';
@@ -19,7 +19,7 @@ function makeToken(name, password, exp) {
 }
 ```
 
-### 验证token的目的，主要看是否过期。过期则需要再登录一次
+## 验证token的目的，主要看是否过期。过期则需要再登录一次
 ```js
 // 二、验证token
 function verifyToken(token) {
@@ -39,7 +39,7 @@ function verifyToken(token) {
 }
 ```
 
-### 对比数据库里的token的同时，一致则要验证一下token是否过期；
+## 对比数据库里的token的同时，一致则要验证一下token是否过期；
 ```js
 // 三、对比数据库里的token
 function verifyMysqlToken(token, userName) {
@@ -68,7 +68,7 @@ function verifyMysqlToken(token, userName) {
     })
 }
 ```
-### 以后涉及用到权限的时候都套用这个方式，其中1、2我已经合在verifyMysqlToken方法里了。
+## 以后涉及用到权限的时候都套用这个方式，其中1、2我已经合在verifyMysqlToken方法里了。
 
  1、对比一下请求的token是否与数据库里的token一致，不一致则结束；
 

@@ -2,7 +2,7 @@
 11.20 星期一：
 
 学习地址：http://www.w3school.com.cn/jquery/index.asp
-### 一、jQuery 教程
+## 一、jQuery 教程
 1. jQuery 简介：
 ```
 jQuery 是一个 JavaScript 函数库。
@@ -22,7 +22,7 @@ $(document).ready(function(){--- jQuery functions go here ----});
 
 ---
 
-### 二、jQuery 效果
+## 二、jQuery 效果
 1. jQuery 隐藏/显示：
 ```js
 $(selector).hide(speed,callback);//隐藏
@@ -83,7 +83,7 @@ $("#p1").css("color","red").slideUp(2000).slideDown(2000);//"p1" 元素首先会
 ```
 ---
 
-### 三、jQuery HTML
+## 三、jQuery HTML
 1. jQuery 获取：
 - - 获得内容 - text()、html() 以及 val()：
 ```js
@@ -146,7 +146,7 @@ val() - 设置或返回表单字段的值
 ```
 ---
 
-### 四、jQuery 遍历：
+## 四、jQuery 遍历：
 > 遍历，意为“移动”，用于根据其相对于其他元素的关系来“查找”（或选取）HTML 元素。
 > 以某项选择开始，并沿着这个选择移动，直到抵达您期望的元素为止。
 1. jQuery 遍历：
@@ -182,11 +182,11 @@ prevUntil()：//在哥/姐到我之间的哥/姐
 
 ---
 
-### 五、jQuery AJAX
+## 五、jQuery AJAX
 1. jQuery AJAX 简介：AJAX 是与服务器交换数据的艺术，它在不重载全部页面的情况下，实现了对部分网页的更新。
 - - 什么是ajax：
 AJAX = 异步 JavaScript 和 XML（Asynchronous JavaScript and XML）。
-####  简短地说，在不重载整个网页的情况下，AJAX 通过后台加载数据，并在网页上进行显示。
+###  简短地说，在不重载整个网页的情况下，AJAX 通过后台加载数据，并在网页上进行显示。
 通过 jQuery AJAX 方法，您能够使用 HTTP Get 和 HTTP Post 从远程服务器上请求文本、HTML、XML 或 JSON - 同时您能够把这些外部数据直接载入网页的被选元素中。
 
 2. jQuery 加载：load() 方法从服务器加载数据，并把返回的数据放入被选元素中。
@@ -215,7 +215,7 @@ AJAX = 异步 JavaScript 和 XML（Asynchronous JavaScript and XML）。
 
 ---
 
-### 六、jQuery 杂项
+## 六、jQuery 杂项
 > jQuery noConflict()：某些框架也使用 $ 符号作为简写（就像 jQuery），如果在用的两种不同的框架正在使用相同的简写符号，有可能导致脚本停止运行。
 
 例如：

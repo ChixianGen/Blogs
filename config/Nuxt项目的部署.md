@@ -10,7 +10,7 @@
 
 第五步、在nginx上面设置一下配置：proxy_pass http://localhost:9000;同理如果你有后台的话，也是这样的操作。
 
-## 然后你就可以访问这个地址啦~
+然后你就可以访问这个地址啦~
 ## [http://www.yating.online](http://www.yating.online)
 
 ###### 感谢张小二帮我部署前后端的项目~(～￣▽￣)～ 
