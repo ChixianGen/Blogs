@@ -1,5 +1,5 @@
 # class继承
-## 当有n个子类的时候，方法相同，就会显得代码冗余；这个时候就需要创建一个父类来继承；
+- 当有n个子类的时候，方法相同，就会显得代码冗余；这个时候就需要创建一个父类来继承；
 ```js
 class American{
     constructor(name,age){
@@ -21,7 +21,7 @@ const c1=new Chinese("婷er",12);
 ```
 ---
 
-##  创建一个父类，并让子类继承父类
+- 创建一个父类，并让子类继承父类
 ```js
 class Person{
     constructor(name,age){
@@ -66,7 +66,8 @@ class American extends Person{
 
 ---
 
-## 在子类中添加信息，给中国人添加身份证号
+## 在子类中添加信息
+给中国人添加身份证号
 ```js
 // 子类中国人
 class Chinese extends Person{

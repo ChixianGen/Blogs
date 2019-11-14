@@ -59,12 +59,12 @@ plugins: [
 ```js
 plugins: [
     new webpack.DefinePlugin({
-      'process.env': require('../config/dev.env')
+      'process.env': require('../配置记录/dev.env')
     })
     ...
 ]
 
-// /config/dev.env.js
+配置记录
 'use strict'
 const merge = require('webpack-merge')
 const prodEnv = require('./prod.env')
@@ -113,13 +113,13 @@ module.exports = {
 const env_config = process.env.env_config || ''; //执行不同的打包脚本对应不同的env_config值
 switch (env_config){
   case 'test': 
-        var env= require('../config/test.env');
+        var env= require('../配置记录/test.env');
         break;
   case 'prod': 
-        var env= require('../config/prod.env');
+        var env= require('../配置记录/prod.env');
         break;
   default:
-        var env= require('../config/prod.env');
+        var env= require('../配置记录/prod.env');
 }
 ```
 
