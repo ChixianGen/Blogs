@@ -1,20 +1,21 @@
 # vue-cli打包
 ## 前期准备
 1. 新建一个vue-cli项目：
-```git
+```
 vue init webpack 项目名
 ```
----
+
 2. 执行这个新项目：
-```js
+```
 npm run dev
 ```
----
+
 3. 打包这个新项目
 ```js
 npm run build
 ```
----
+
+## 初次打包的坑
 这时候你就会发现打包后的页面是一片空白的；
 
 按F12在控制台上，会发现报错；`file:///F:/static/css/app.30790115300ab27614ce176899523b62.css net::ERR_FILE_NOT_FOUND`;
@@ -31,7 +32,7 @@ assetsPublicPath属性作用是指定编译发布的根目录，‘/'指的是�
 ## 开始准备分环境打包
 ### 下载DefinePlugin插件： 此插件可以在打包时定义环境变量，在开发时我们也能在代码中获取定义的环境变量。
 
-在webpack。dev。confi.js里的plungin里添加；
+在webpack.dev.confi.js里的plungin里添加；
 #### 单独配置
 ```js
 plugins: [
@@ -64,7 +65,7 @@ plugins: [
     ...
 ]
 
-配置记录
+// 配置记录
 'use strict'
 const merge = require('webpack-merge')
 const prodEnv = require('./prod.env')
@@ -123,4 +124,41 @@ switch (env_config){
 }
 ```
 
+## 关闭eslint
 
+删除webpack.base.config.js文件下的
+```js
+      ...(config.dev.useEslint ? [createLintingRule()] : []),
+// 改成
+      ...(config.dev.useEslint ? [] : []),
+```
+
+## 使用echart
+- 下载echart
+```
+npm install echarts --save
+```
+
+- 全局引用在main.js中
+```js
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+```
+
+- 使用
+```js
+this.pieChart = this.$echarts.init(document.getElementById(this.id));
+```
+
+## 使用view
+- 下载
+```
+$ npm install view-design --save
+```
+- 在main.js添加
+```js
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
+
+Vue.use(ViewUI);
+```

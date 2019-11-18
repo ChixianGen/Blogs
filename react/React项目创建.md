@@ -78,6 +78,28 @@ import React, { Component } from 'react';
    }
    export default Test;
 ```
+### 注意警告
+如果控制台出现报错的话，在package.json里添加
+```json
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": "css"
+      }
+    ]
+  ]
+```
+然后删掉原来的node_module,重新npm i
+再次重新启动就看不见警告了。
+## 引入router
+
+### 下载
+```
+npm install react-router-dom --save
+```
 
 ## 打包
 ### 打包后本地可预览
