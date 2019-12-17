@@ -1,3 +1,7 @@
+---
+img: 'tutu.jpg'
+---
+
 # about me
 
 ## **YATING**
