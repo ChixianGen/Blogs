@@ -53,3 +53,30 @@ Person.show=function(){
 //student.show()是无法用到的
 ```
 
+### 面试题
+```js
+function Foo(){
+    Foo.a=function(){
+        console.log(1)
+    }
+    this.a=function(){
+        console.log(2)
+    }
+}
+// 吧Foo当做类，在原型上设置实例公有属性方法
+Foo.prototype.a=function(){
+    console.log(4)
+}
+//把foo当做普通对象设置私有属性方法 
+Foo.a=function(){
+    console.log(3)
+}
+
+Foo.a();//3
+new obj=new Foo();//会执行Foo();替换之前的
+obj.a();
+Foo.a();
+
+// 结果为：3，2，1
+```
+
