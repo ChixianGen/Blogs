@@ -1,5 +1,5 @@
 ---
-img: 'nuomizi.jpg'
+img: '../img/nuomizi.jpg'
 ---
 
 # http1和http2和https

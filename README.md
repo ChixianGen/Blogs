@@ -1,5 +1,5 @@
 ---
-img: 'tutu.jpg'
+img: '../img/tutu.jpg'
 ---
 
 # about me
