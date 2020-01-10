@@ -184,3 +184,7 @@ for(let [key,value] of m){
 // name yating
 // age 18
 ```
+
+## web work
+- 构造函数，加载分线程执行的js文件
+- 
