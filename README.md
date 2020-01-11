@@ -13,14 +13,14 @@ img: '../img/tutu.jpg'
 - 站酷：[https://chenyating.zcool.com.cn/](https://chenyating.zcool.com.cn/)
 
 
-## 联系方式：
+## 联系方式
 
 - Email：924471303@qq.com
 
 - 微信：The--Miss
   
 
-## 技能介绍： 
+## 技能介绍
 
 1.	掌握前端基本技术，包括HTML(HTML5)、JS(ES6)，css(css3、less、sass，stylus)预处理器；
 2.	掌握渐进式vue.js框架、vue-cli脚手架、nuxt框架、vuex状态管理器，vue-router路由管理器等；
