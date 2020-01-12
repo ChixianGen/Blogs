@@ -1,6 +1,121 @@
 # 总结
+## 闭包
+
+### 定义
+- 是一个密闭的容器，类似于set，map，存储数据
+- 闭包是一个对象，存放数据的格式 ： key：value
+
+### 形成条件
+- 要有函数嵌套
+- 内部函数引用外部函数的局部变量，外部函数调用
+
+```js
+function fn(){
+    var a=1;
+    return function(){
+        console.log(a)
+    }
+}
+var fn2=fn();
+fn2();
+fn2();
+```
+
+### 作用
+- 延长外部函数变量的生命周期
+- 从外部访问函数内部的局部变量
+
+### 缺点
+- 内存泄漏
+- 不及时清除闭包容易导致内存溢出
+
+## 如何避免
+- 减少使用
+- 及时清除，销毁闭包 用完设置为null
+
+### 使用场景
+- 遍历函数
+- 传参
+
+```js
+var a=1;
+console.log(a++)
+console.log(++a)
+console.log(++a)
+console.log(a++)
+console.log(a)
+1
+3
+4
+4
+5
+```
+
+### 闭包编写模板
+```js
+function module(){
+    var str='hello',
+    function getStr(){
+        return str
+    }
+    return{
+        getStr:getStr
+    }
+}
+
+// 使用
+
+console.log(module().getStr())
 
 
+(function module(window){
+    var str='hello',
+    function getStr(){
+        return str
+    }
+    window.module={
+        getStr:getStr
+    }
+})(window)
+
+使用：
+module.getStr()
+```
+
+### 闭包面试输出题
+```js
+function fn(n,o){
+    console.log(o)
+    return{
+        fn:function(m){
+            return fn(m,n)
+        }
+    }
+}
+var a=fn(0)//undefined
+//这时 n=0，o=undefined
+// a={
+//     fn:function(m){
+//         return fn(m,0)
+//     }
+// }
+
+a.fn(1)
+// 0
+a.fn(2)
+//0
+a.fn(3)
+//0
+
+
+var b=fn(0).fn(1).fn(2).fn(3)
+// undefined
+// 0
+// 1
+// 2
+```
+
+## 函数
 fun()
 1. 自调用：fun()==>window.fun();
 2. new fun():this==>实例对象
@@ -66,78 +181,6 @@ Foo.a();
 // 结果为：3，2，1
 ```
 
-## 闭包
-
-### 定义
-是一个闭合的容器，可以吧闭包认为是一个对象{key:value}
-
-### 形成条件
-- 要有函数嵌套
-- 内部函数引用外部函数的局部变量
-- 外部函数调用
-
-### 作用
-- 延长外部函数的生命周期
-- 从外部访问函数内部的局部变量
-
-### 使用场景
-- 遍历函数
-- 传参
-  
-### 缺点
-- 占内存
-- 不及时清除闭包容易导致内存溢出
-  
-## 如何避免
-- 减少使用
-- 及时清除闭包 用完设置为null
-
-
-```js
-var a=1;
-console.log(a++)
-console.log(++a)
-console.log(++a)
-console.log(a++)
-console.log(a)
-1
-3
-4
-4
-5
-```
-
-### 闭包编写模板
-```js
-function module(){
-    var str='hello',
-    function getStr(){
-        return str
-    }
-    return{
-        getStr:getStr
-    }
-}
-
-// 使用
-
-console.log(module().getStr())
-
-
-(function module(window){
-    var str='hello',
-    function getStr(){
-        return str
-    }
-    window.module={
-        getStr:getStr
-    }
-})(window)
-
-使用：
-module.getStr()
-```
-
 ## 作用域
 ### 全局
 ### 局部
@@ -173,11 +216,4 @@ obj=null
 - 同步& 一步，同步任务会导致阻塞
 - 同步代表，alert()，console.log()，赋值语句
 
-## 事件环（事件轮询机制）
-- js是单线程
-- 所有的代码都会在主线程执行；
-- 同步任务加载即执行
-- 异步任务不会立即执行，而会交给对应的管理模块
-- 管理模块一直在监视异步任务是否满足条件，如果满足会将对应的回调放入callback queue 回调队列中
-- 主线程上的同步任务执行完以后会通过event loop（事件伦旭机制）询问callback queue
 

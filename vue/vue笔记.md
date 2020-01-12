@@ -195,3 +195,43 @@ this.arr(0,1,1);
 <!-- 遍历的是值-属性名 -->
 <p v-for="(value,key) in arr[0]" :key="key">{{key}}={{value}}</p>
 ```
+
+## 通信
+### 通信种类
+- 父==》子
+- 子==》父
+- 隔代
+- 兄弟间
+
+### 通信方式
+- 1、props
+  
+- 2、vue自定义事件
+```js
+<!-- 创建事件 -->
+this.$emit('事件名'，data)
+<!-- ·1、给组件绑定事件 -->
+this.$refs.refName.$on('事件名'，data)
+<!-- 2、给组件绑定事件 -->
+<componentName @事件名=“事件”/>
+```
+
+- 3、消息订阅与发布
+需要引入消息订阅与发布实现库，pubsub.js
+
+```js
+a. 订阅消息：PubSub.subscript('msg',(msg,data)=>{})
+b. 发布消息：PubSub.publish('msg',data)
+```
+
+- 4、vuex
+是一个vue应用管理的状态管理vue插件
+
+state：数据 $store.state,mapState()
+
+getter：计算属性 $store.getters mapGetter()
+
+actions: $store.dispatch() mapAction()； 对mutation进行commit
+
+mutations: 直接更新state
+- 5、slot

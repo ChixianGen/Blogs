@@ -123,11 +123,7 @@ fucntion fn(x){
 // 等同于
 let fn=x=>y=>x+y;
 ```
-
-::: danger 注意
 回调函数的this指向window；
-:::
-
 
 1. 箭头函数没有arguments（类数组）只能给予...arg获取传递的参数集合（数组）
 ```js

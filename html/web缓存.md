@@ -1,6 +1,3 @@
----
-img: 'https://www.yating.online/img/yating.jpg'
----
 # web缓存
 客户端缓存
 - from disk cache

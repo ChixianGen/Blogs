@@ -7,26 +7,27 @@
 --- 
 
 > ssl证书：实现网站HTTPS化，使网站可信，防劫持、防篡改、防监听、安全加密。SSL 证书就是遵守 SSL协议，由受信任的数字证书颁发机构CA，在验证服务器身份后颁发，具有服务器身份验证和数据传输加密功能。
->> 该安全协议主要用来提供对用户和服务器的认证；对传送的数据进行加密和隐藏；确保数据在传送中不被改变，即数据的完整性，现已成为该领域中全球化的标准。
 
-## 步骤：
-1. 第一步首先购买ssl证书：我用的是阿里云服务器。ssl证书购买地址：https://common-buy.aliyun.com/?spm=5176.7968328.1266638..122e1232hPOLjC&commodityCode=cas&aly_as=HPiHXlKb#/buy
-2. 第二步:购买以后需要填写信息申请；成功以后就可以下载ssl证书了；
+该安全协议主要用来提供对用户和服务器的认证；对传送的数据进行加密和隐藏；确保数据在传送中不被改变，即数据的完整性，现已成为该领域中全球化的标准。
+
+## 步骤
+1. 第一步首先购买ssl证书
+我用的是阿里云服务器。ssl证书购买地址：https://common-buy.aliyun.com/?spm=5176.7968328.1266638..122e1232hPOLjC&commodityCode=cas&aly_as=HPiHXlKb#/buy
+2. 第二步：购买以后需要填写信息申请；成功以后就可以下载ssl证书了；
 3. 下载nginx服务类型的证书
 
 --- 
 ## 文件类型介绍
 1. .key文件：属于密钥文件，SSL证书的私人密钥就包括在内。是信息内容的中枢；
 2. .csr文件：文件里包括证书的公用密钥和一些公司内部重要秘密信息，要使用者通过请求签名之后才能够直接生出证书；
-
 3. .crt文件：此文件也包含了ssl证书的公用密钥、签字讯息以及根据不同的类型伴随不同认证的信息，通常各类签名签字证书都会在这类文件中，如IP等；
-
 4. .pem文件：该文件较其他后缀文件来说比较少见，里面包含着证书的私人密钥以及其他一部分证书重要的信息。
 
 *重点：请记得在阿里云的安全组策略，把443端口号给开放出来哦~！*
+
 *记得把你页面上的所有http的请求都改成https，不然报错！*
 
-### 通用格式：
+### 通用格式
 ```nginx
         listen  443 ssl;
         server_name  yating.online;
@@ -38,8 +39,7 @@
         ssl_ciphers HIGH:+AES; #限定加密算法
 ```
 
-## 虽然这样配置就可以了，但是当我访问www.yating.online的时候，还是默认http://www.yating.online;
-(●—●)所以需要设置，一下，强制http转为https：
+## 强制http转为https
 
 ```nginx
    #访问yaitng.online,强制http转为https
@@ -50,8 +50,6 @@
     }
 ```
 
-## 这样地址就会变成变成https://www.yating.online啦~(︶.̮︶✽)
-
 *** 
 
 ## nginx指令给一波
@@ -61,8 +59,8 @@
 - /usr/local/webserver/nginx/sbin/nginx -s stop              # 停止 Nginx
 
 
-### 下面是我nginx配置：
-```nginx
+### nginx配置
+```
 #user  nobody;
 worker_processes  1;
 user root;

@@ -1,19 +1,15 @@
-# nginx设置代理，把nuxt项目放到服务器上运行的步骤
+# nginx设置代理
 
-第一步、在本地 npm run build,会在.nuxt文件夹下生成dist文件;
+## 步骤
 
-第二步、把本地文件的.nuxt,static,package.json,nuxt.config.js,这四个文件夹放到服务器目录文件下，四个文件放到里面;
+- 第一步、在本地 npm run build,会在.nuxt文件夹下生成dist文件;
+- 第二步、把本地文件的.nuxt,static,package.json,nuxt.config.js,这四个文件夹放到服务器目录文件下，四个文件放到里面;
+- 第三步、安装依赖，npm install;
+- 第四步、npm start 此时运行的是 http://localhost:9000;
+- 第五步、在nginx上面设置一下配置：proxy_pass http://localhost:9000;同理如果你有后台的话，也是这样的操作。
 
-第三步、安装依赖，npm install;
+然后你就可以访问这个地址啦~[http://www.yating.online](http://www.yating.online)
 
-第四步、npm start 此时运行的是 http://localhost:9000;
-
-第五步、在nginx上面设置一下配置：proxy_pass http://localhost:9000;同理如果你有后台的话，也是这样的操作。
-
-然后你就可以访问这个地址啦~
-## [http://www.yating.online](http://www.yating.online)
-
-###### 感谢张小二帮我部署前后端的项目~(～￣▽￣)～ 
 
 ```nginx
 #user  nobody;
@@ -84,7 +80,7 @@ http {
 }
 ```
 
-## 其他扩展：
+## 其他扩展
 PM2守护程序目前似乎最常见的线上部署软件。
 
 命令行全局安装pm2
