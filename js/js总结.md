@@ -121,13 +121,6 @@ fun()
 2. new fun():this==>实例对象
 3. fun.call(obj):this==>obj
 
-## new
-操作符
-1. 创建空对象
-2. 执行函数
-3. 确认this的指向：this==》创建空对象
-4. 返回执行结果
-
 
 ## console
 

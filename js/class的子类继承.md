@@ -1,55 +1,54 @@
-# class继承
+# class的子类继承
+
+## 创建类
 - 当有n个子类的时候，方法相同，就会显得代码冗余；这个时候就需要创建一个父类来继承；
-```js
-class American{
-    constructor(name,age){
-        this.name=name;
-        this.age=age;
-
-    }
-}
-const a1=new American("jack",12);
-
-class Chinese{
-    constructor(name,age){
-        this.name=name;
-        this.age=age;
-    }
-}
-
-const c1=new Chinese("婷er",12);
-```
----
-
-- 创建一个父类，并让子类继承父类
 ```js
 class Person{
     constructor(name,age){
         this.name=name;
         this.age=age;
-
+    }
+    sayhi(){
+        console.log(this.nam,age,'hello')
     }
 }
+const a1=new Person("jack",12);
+```
+
+## 创建子类继承父类
+```js
+class Person{
+    constructor(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    sayhi(){
+        console.log(this.nam,age,'hello')
+    }
+}
+
 // 在class中可以使用extends关键字实现子类继承父类；
 // 子类美国人
 class American extends Person{}
-const a1=new American("jack",12);
-
-// 子类中国人
-class Chinese extends Person{}
-const c1=new Chinese("婷er",12);
+const a1=new American('hello',12);
+a1.sayhi();//报错, 数据没有传给父类
 ```
 
 ---
 
-## 在子类添加构造器方法
+## 子类添加构造器方法
 ```js
 class American extends Person{
     constructor(name,age){
-        super(name,age);
+        super(name,age);//调用父类的constructor
     }
 }
+const a1=new American('hello',12);
+a1.sayhi();
+// hello,12,hi
 ```
+
+
 ---
 
 ？1：为什么要在constructor使用super
