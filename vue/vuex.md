@@ -37,6 +37,9 @@ const mutations={}
 ```
 
 ## actions
-
+分发事件
+```js
+this.$store.dispatch()
+```
 ## getters
 
