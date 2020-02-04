@@ -235,3 +235,4 @@ actions: $store.dispatch() mapAction()； 对mutation进行commit
 
 mutations: 直接更新state
 - 5、slot
+
